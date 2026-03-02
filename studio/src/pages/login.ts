@@ -1,6 +1,7 @@
 import { render } from '../utils/render'
 import { login } from '../api/auth'
 import { navigate } from '../utils/router'
+import {  setToken } from '../utils/storage'
 
 export const LoginPage = () => {
   render(`
@@ -32,7 +33,7 @@ export const LoginPage = () => {
        btn.disabled = true
       btn.textContent = 'Загрузка'
       const data = await login(username, password)
-      localStorage.setItem('token', data.token)
+      setToken(data.token)
 
       navigate('/tracks')
     } catch {
