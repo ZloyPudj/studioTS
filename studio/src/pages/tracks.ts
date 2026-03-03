@@ -1,9 +1,8 @@
 import { render } from '../utils/render'
 import { getTracks } from '../api/track'
 import type { Track } from '../types/track'
-import { FavoritesPage } from './favorites'
 import { addFavorite } from '../api/favorites'
-import { Navbar, initNavbar } from '../components/navbar'
+import { initNavbar } from '../components/navbar'
 
 export const TracksPage = async () => {
     render(`<p>Загрузка...</p>`)
