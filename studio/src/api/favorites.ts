@@ -1,14 +1,19 @@
-import { request } from '../api/api'
-import type { Track } from '../types/track'
+import { render } from '../utils/render'
+import { tracks } from '../data/tracks.js'
 
-export const getFavorites = () => {
-    return request<Track[]>('favorites', 'GET')
+export const FavoritesPage = () => {
+
+  const fav = JSON.parse(localStorage.getItem('favorites') || '[]')
+
+  const favTracks = tracks.filter(t => fav.includes(String(t.id)))
+
+  render(`
+  <h1>Избранное ❤️</h1>
+
+  ${favTracks.map(track => `
+    <div>
+      <b>${track.title}</b> — ${track.artist}
+    </div>
+  `).join('')}
+  `)
 }
-
-export const addFavorite = (trackId: string) => {
-    return request ('favorites', 'POST', { trackId })
-}
-
-export const removeFavorite = (trackId: string) => {
-    return request ('favorites', 'DELETE', { trackId })
-}   

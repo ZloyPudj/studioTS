@@ -1,7 +1,7 @@
-import { render } from '../utils/render'
-import { login } from '../api/auth'
+/*import { render } from '../utils/render'
+//import { login } from '../api/auth'
 import { navigate } from '../utils/router'
-import {  setToken } from '../utils/storage'
+//import {  setToken } from '../utils/storage'
 
 export const LoginPage = () => {
   render(`
@@ -10,7 +10,7 @@ export const LoginPage = () => {
     <input id="username" placeholder="username" />
     <input id="password" type="password" placeholder="password" />
     
-    <button id="btn">Войти</button>
+    <button id="btn" type="button">Войти</button>
 
     <p>
       Нет аккаунта?
@@ -18,32 +18,34 @@ export const LoginPage = () => {
     </p>
   `)
 
-  const btn = document.getElementById('btn')! as HTMLButtonElement
+ const btn = document.querySelector('#btn') as HTMLButtonElement
 
-  btn.addEventListener('click', async () => {
+  btn.addEventListener('click', () => {
+  console.log('клик')
+  window.location.hash = '/tracks'
+})
+
     const username = (document.getElementById('username') as HTMLInputElement).value
     const password = (document.getElementById('password') as HTMLInputElement).value
 
-    if (!username || !password){
-        alert('Заполните все поля')
-        return
+    if (!username || !password) {
+      alert('Заполните все поля')
+      return
     }
 
     try {
-       btn.disabled = true
+      btn.disabled = true
       btn.textContent = 'Загрузка'
-      const data = await login(username, password)
-      setToken(data.token)
 
-      navigate('/tracks')
+      window.location.hash = '/tracks'
     } catch {
       alert('Ошибка логина')
     }
-  })
+  }
 
   const goRegister = document.getElementById('goRegister')!
 
   goRegister.addEventListener('click', () => {
     navigate('/register')
   })
-}
+*/

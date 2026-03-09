@@ -1,27 +1,20 @@
-import { navigate } from '../utils/router';
-import { removeToken } from '../utils/storage'
-
-export const Navbar = () => {
-    return `
-     <nav style="margin-bottom:20px;">
-      <button id="navTracks">Треки</button>
-      <button id="navFav">Избранное</button>
-      <button id="logout">Выйти</button>
-    </nav>
-    `
-}
+import { navigate } from '../utils/router'
 
 export const initNavbar = () => {
-    document.getElementById('navTracks')?.addEventListener('click', () => {
-        navigate('/tracks')
-    }) 
+  const nav = document.createElement('div')
 
-    document.getElementById('navFav')?.addEventListener('click', () => {
-        navigate('/favorites')
-    })
+  nav.innerHTML = `
+    <button id="tracksBtn">Треки</button>
+    <button id="favBtn">Избранное ❤️</button>
+  `
 
-    document.getElementById('logout')?.addEventListener('click', () => {
-        removeToken()
-        navigate('/login')
-    })
+  document.body.prepend(nav)
+
+  document.getElementById('tracksBtn')?.addEventListener('click', () => {
+    navigate('/tracks')
+  })
+
+  document.getElementById('favBtn')?.addEventListener('click', () => {
+    navigate('/favorites')
+  })
 }

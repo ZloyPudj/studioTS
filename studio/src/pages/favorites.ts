@@ -1,23 +1,26 @@
 import { render } from '../utils/render'
-import { getFavorites, removeFavorite } from '../api/favorites'
 import type { Track } from '../types/track'
 import { navigate } from '../utils/router'
-import { initNavbar, Navbar } from '../components/navbar'
+import { initNavbar, } from '../components/navbar'
+import { tracks as allTracks } from '../data/tracks.js'
 
 export const FavoritesPage = async () => {
   render(`<p>Загрузка...</p>`)
 
   try {
-    const tracks: Track[] = await getFavorites()
+    const fav = JSON.parse(localStorage.getItem('favorites') || '[]') as string[]
+
+    const favTracks: Track[] = allTracks.filter(t =>
+      fav.includes(String(t.id))
+    )
 
     render(`
-      ${Navbar()}
       <h1>Избранное ❤️</h1>
 
       <button id="back">Назад</button>
 
       <div>
-        ${tracks.map(t => `
+        ${favTracks.map(t => `
           <div>
             <b>${t.title}</b> — ${t.artist}
             <button data-id="${t.id}">Удалить</button>
@@ -39,7 +42,12 @@ export const FavoritesPage = async () => {
         if (!id) return
 
         try {
-          await removeFavorite(id)
+          const fav = JSON.parse(localStorage.getItem('favorites') || '[]')
+
+          const updated = fav.filter((f: string) => f !== id)
+
+          localStorage.setItem('favorites', JSON.stringify(updated))
+
           FavoritesPage()
         } catch {
           alert('Ошибка удаления')

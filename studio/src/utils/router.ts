@@ -4,16 +4,13 @@ import { TracksPage } from '../pages/tracks'
 import { FavoritesPage } from '../pages/favorites'
 
 export const navigate = (path: string) => {
-
-    const token = localStorage.getItem('token')
-
-    if ((path === '/tracks') || (path === '/favorites') && !token) {
-        LoginPage()
-        return
-    }
-    
-    if (path === '/login') LoginPage()
-    if (path === '/register') RegisterPage()
-    if (path === '/tracks') TracksPage()  
-    if (path === '/favorites') FavoritesPage() 
+  if (path === '/login') LoginPage()
+  else if (path === '/register') RegisterPage()
+  else if (path === '/tracks') TracksPage()
+  else if (path === '/favorites') FavoritesPage()
 }
+
+window.addEventListener('hashchange', () => {
+  const path = window.location.hash.slice(1)
+  navigate(path)
+})

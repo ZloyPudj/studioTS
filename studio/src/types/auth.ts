@@ -1,4 +1,4 @@
-export interface AuthResponce {
+/*export interface AuthResponce {
     token: string
     message?: string
-}
+}*/

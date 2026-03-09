@@ -1,4 +1,4 @@
-const BASE_URL = 'http://localhost:8000/api'
+/*const BASE_URL = 'http://localhost:3001/api'
 
 export const request = async <T>(
     url: string,
@@ -21,4 +21,4 @@ export const request = async <T>(
     }
 
     return res.json()
-}
+}*/

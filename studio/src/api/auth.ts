@@ -1,4 +1,4 @@
-import { request } from './api'
+/*import { request } from './api'
 
 export const login = (username: string, password: string) => {
     return request<{ token: string}>('/login', 'POST', {
@@ -12,4 +12,4 @@ export const register = (username: string, password: string) => {
     username,
     password
   })
-}
+}*/

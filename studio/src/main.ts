@@ -1,3 +1,4 @@
 import { navigate } from './utils/router'
 
-navigate('/login')
+const path = window.location.hash.slice(1) || '/login'
+navigate(path)
