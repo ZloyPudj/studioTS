@@ -23,7 +23,7 @@ export const TracksPage = () => {
          `).join('')}
         </div>
     `)
-        initNavbar()
+        
 
         document.querySelectorAll('button[data-id]').forEach(btn => {
             btn.addEventListener('click', async () => {
@@ -41,9 +41,11 @@ export const TracksPage = () => {
                 alert('Добавлено в избранное ❤️')
             })
         })
+     
 
     } catch (e) {
         console.error(e)
         render(`<p>Ошибка загрузки треков</p>`)
     }
 }
+initNavbar()

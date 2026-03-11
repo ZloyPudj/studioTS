@@ -1,7 +1,11 @@
 import { navigate } from '../utils/router'
 
 export const initNavbar = () => {
+  const existing = document.getElementById('navbar')
+  if (existing) existing.remove()
+
   const nav = document.createElement('div')
+  nav.id = 'navbar'
 
   nav.innerHTML = `
     <button id="tracksBtn">Треки</button>
