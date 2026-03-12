@@ -71,3 +71,17 @@ p button {
   color: #38bdf8;
   padding: 0;
 }
+
+#navbar {
+  position: relative;
+  z-index: 1;
+  padding: 1rem;
+  background-color: #111; /* тёмный фон */
+}
+
+#navbar input {
+  padding: 0.5rem;
+  font-size: 1rem;
+  border-radius: 5px;
+  width: 250px;
+}

@@ -1,4 +1,8 @@
 import { navigate } from './utils/router'
 
-const path = window.location.hash.slice(1) || '/tracks'
-navigate(path)
+if (!window.location.hash) {
+  window.location.hash = '/tracks'
+} else {
+  const path = window.location.hash.slice(1)
+  navigate(path)
+}

@@ -9,4 +9,4 @@ export const navigate = (path: string) => {
 window.addEventListener('hashchange', () => {
   const path = window.location.hash.slice(1)
   navigate(path)
-})
+})  
