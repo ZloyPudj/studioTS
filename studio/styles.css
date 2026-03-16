@@ -1,87 +1,99 @@
+/* Базовые стили */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
 body {
-  background: #0f172a;
-  color: white;
+  background: #f8f8f8;
+  color: #111827;
   display: flex;
   justify-content: center;
-  align-items: center;
-  height: 100vh;
+  padding: 20px;
 }
 
 #app {
-  background: #1e293b;
+  width: 100%;
+  max-width: 1000px;
+  background: white;
+  border-radius: 12px;
   padding: 40px;
-  border-radius: 16px;
-  width: 320px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 }
 
+/* Заголовок */
 h1 {
-  margin-bottom: 20px;
-  text-align: center;
+  font-size: 28px;
+  margin-bottom: 30px;
 }
 
-input {
+/* Поиск */
+input[type="text"]#search {
   width: 100%;
-  padding: 12px;
-  margin-bottom: 12px;
-  border-radius: 10px;
-  border: none;
-  outline: none;
-  background: #334155;
-  color: white;
-  font-size: 14px;
+  padding: 12px 16px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 16px;
+  margin-bottom: 24px;
 }
 
-button {
-  width: 100%;
-  padding: 12px;
-  border-radius: 10px;
-  border: none;
-  background: #22c55e;
+/* Кнопка "Избранное" */
+#goFav {
+  background: #f97316;
   color: white;
-  font-weight: bold;
+  border: none;
+  padding: 12px 20px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 8px;
   cursor: pointer;
+  margin-bottom: 32px;
+  display: inline-block;
+}
+
+#goFav:hover {
+  background: #ea580c;
+}
+
+/* Треки */
+#trackList > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 12px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+#trackList b {
+  font-weight: 600;
+  font-size: 15px;
+  color: #111827;
+}
+
+#trackList span {
+  display: block;
+  font-size: 13px;
+  color: #6b7280;
+  margin-top: 2px;
+}
+
+/* Текст и кнопка */
+#trackList > div > div {
+  display: flex;
+  flex-direction: column;
+}
+
+#trackList button[data-id] {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: #f97316;
   transition: 0.2s;
 }
 
-button:hover {
-  background: #16a34a;
-}
-
-button:disabled {
-  background: #64748b;
-  cursor: not-allowed;
-}
-
-p {
-  margin-top: 15px;
-  text-align: center;
-  font-size: 14px;
-}
-
-p button {
-  background: none;
-  color: #38bdf8;
-  padding: 0;
-}
-
-#navbar {
-  position: relative;
-  z-index: 1;
-  padding: 1rem;
-  background-color: #111; /* тёмный фон */
-}
-
-#navbar input {
-  padding: 0.5rem;
-  font-size: 1rem;
-  border-radius: 5px;
-  width: 250px;
+#trackList button[data-id]:hover {
+  color: #ea580c;
 }
