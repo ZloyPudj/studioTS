@@ -24,7 +24,7 @@ export const TracksPage = () => {
       </div>
     `)
 
-    attachListeners() // ✅ вот сюда
+    attachListeners() 
 
     initNavbar()
 
@@ -40,7 +40,7 @@ export const TracksPage = () => {
       const list = document.getElementById('trackList')
       if (list) {
         list.innerHTML = renderTracks(filtered)
-        attachListeners() // ✅ заново вешаем обработчики после перерисовки
+        attachListeners() 
       }
     })
 
@@ -59,7 +59,7 @@ function renderTracks(data: typeof tracks) {
   `).join('')
 }
 
-// 🔁 Обработчики кнопок
+// Обработчики кнопок
 function attachListeners() {
   // Кнопки "в избранное"
   document.querySelectorAll('button[data-id]')?.forEach(btn => {
